@@ -12,7 +12,7 @@ namespace Positioning2WheelsNS
     {
         public void OnOdometryRobotSpeedReceived(object sender, PolarSpeedArgs e)
         {
-
+            
         }
 
         //Output events

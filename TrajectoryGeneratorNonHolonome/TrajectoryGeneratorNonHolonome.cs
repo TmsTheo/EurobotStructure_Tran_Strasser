@@ -66,7 +66,9 @@ namespace TrajectoryGeneratorNonHolonomeNS
         void CalculateGhostPosition()
         {
             //A remplir
-
+            ghostLocationRefTerrain.X = ghostLocationRefTerrain.Vx/50 + ghostLocationRefTerrain.X;
+            ghostLocationRefTerrain.Y = ghostLocationRefTerrain.Vy / 50 + ghostLocationRefTerrain.Y;
+            ghostLocationRefTerrain.Theta = ghostLocationRefTerrain.Vtheta / 50 + ghostLocationRefTerrain.Theta;
             //On renvoie la position du ghost pour affichage
             OnGhostLocation(robotId, ghostLocationRefTerrain);
         }
