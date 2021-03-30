@@ -13,6 +13,7 @@ namespace WorldMapManager
         LocalWorldMap localWorldMap;
         bool bypassMulticastUdp = false;
 
+        int robotId = 10;
         public LocalWorldMapManager(int robotId, int teamId, bool bypassMulticast)
         {
             localWorldMap = new LocalWorldMap();
@@ -22,16 +23,16 @@ namespace WorldMapManager
             bypassMulticastUdp = bypassMulticast;
         }
 
-        //public void OnPhysicalPositionReceived(object sender, EventArgsLibrary.LocationArgs e)
-        //{
-        //    if (localWorldMap == null)
-        //        return;
-        //    if (robotId == e.RobotId)
-        //    {
-        //        localWorldMap.robotLocation = e.Location;
-        //        OnLocalWorldMap(robotId, localWorldMap);
-        //    }
-        //}
+        public void OnPhysicalPositionReceived(object sender, EventArgsLibrary.LocationArgs e)
+        {
+            if (localWorldMap == null)
+                return;
+            if (robotId == e.RobotId)
+            {
+                localWorldMap.robotLocation = e.Location;
+                OnLocalWorldMapForDisplayOnly(localWorldMap);
+            }
+        }
 
         DecimalJsonConverter decimalJsonConverter = new DecimalJsonConverter();
         //public void OnPerceptionReceived(object sender, EventArgsLibrary.PerceptionArgs e)
